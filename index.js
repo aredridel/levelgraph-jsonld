@@ -37,11 +37,7 @@ function levelgraphJSONLD(db, jsonldOpts) {
         return callback && callback(err);
       }
       if (options.base) {
-        if (expanded['@context']) {
-          expanded['@context']['@base'] = options.base;
-        } else {
-          expanded['@context'] = { '@base' : options.base };
-        }
+        expanded['@context'] = { '@base' : options.base };
       }
 
       jsonld.toRDF(expanded, options, function(err, triples) {
@@ -167,11 +163,7 @@ function levelgraphJSONLD(db, jsonldOpts) {
       stream.on('error', callback);
 
       if (options.base) {
-        if (expanded['@context']) {
-          expanded['@context']['@base'] = options.base;
-        } else {
-          expanded['@context'] = { '@base' : options.base };
-        }
+        expanded['@context'] = { '@base' : options.base };
       }
 
       jsonld.toRDF(expanded, options, function(err, triples) {
